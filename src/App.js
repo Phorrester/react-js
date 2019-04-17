@@ -7,11 +7,19 @@ const COLORS = ["red", "blue"];
 class Welcome extends Component {
   constructor(props) {
     super(props);
-    this.name = props.name;
+    this.state = {name: ""};
+    this.handleNameChange = this.handleNameChange.bind(this);
   }
+  handleNameChange(e){
+    this.setState({name: e})
+  }
+  
   render() {
     return (
-      <h1>Hello {this.name}</h1>
+      <React.Fragment>
+        <h1>Hello {this.state.name}</h1>
+        <NameInput name={this.state.name} onNameChange = {this.handleNameChange} />
+      </React.Fragment>
     )
   }
 }
@@ -91,7 +99,28 @@ class Message extends Component {
     )
   }
 }
-
+class NameInput extends Component {
+  constructor(props) {
+    super(props);
+      this.handleChange = this.handleChange.bind(this);
+    // this.state = {name: ""};
+    
+  }
+  handleChange(e){
+    this.props.onNameChange(e.target.value);
+  }
+  render() {
+    const name = this.props.name;
+    return (
+      <fieldset>
+        <legend>Enter your name.</legend>
+        <input 
+        value={name}
+        onChange={this.handleChange}></input>
+      </fieldset>
+    )
+  }
+}
 class App extends Component {
   render() {
     return (
@@ -100,7 +129,7 @@ class App extends Component {
         <Clock />
         <Message message="This entire page is made using React." />
         <Message message="These two squares each have their own state that will cycle between the two colors." />
-        <div className = "inline">
+        <div className="inline">
           <Square color="red" />
           <Square color="blue" />
         </div>
