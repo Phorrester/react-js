@@ -96,7 +96,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Welcome name="Cody" />
+        <Welcome name="Visitor" />
         <Clock />
         <Message message="This entire page is made using React." />
         <Message message="These two squares each have their own state that will cycle between the two colors." />
