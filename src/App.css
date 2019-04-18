@@ -9,7 +9,7 @@ body {
   height: 50px;
   width: 50px;
   background-color: red;
-  /* margin: auto; */
+  /*max-width: max-content;*/
 }
 .blue {
   display: flex;
@@ -17,6 +17,7 @@ body {
   width: 50px;
   background-color: blue;
   /* margin: auto; */
+    /*max-width: max-content;*/
 }
 .inline {
   display: flex;

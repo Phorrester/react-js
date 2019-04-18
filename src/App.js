@@ -62,7 +62,7 @@ class Square extends Component {
   }
   render() {
     return (
-      <div className={this.state.color}></div>
+      <div className={`${this.state.color} ${"col-sm-6"}`}/> //This is how you can add two classes.
     )
   }
 }
@@ -152,11 +152,19 @@ class App extends Component {
         <Welcome name="Visitor" />
         <Clock />
         <Message message="This entire page is made using React." />
-        <Message message="These two squares each have their own state that will cycle between the two colors." />
+        <Message message="These squares each have their own state that will cycle between the two colors." />
         <div className="inline">
           <Square color="red" />
           <Square color="blue" />
         </div>
+          <div className={"inline"}>
+            <Square color={"blue"}/>
+            <Square color={"red"}/>
+          </div>
+          <div className={"inline"}>
+              <Square color={"red"}/>
+              <Square color={"blue"}/>
+          </div>
       </div>
     );
   }
