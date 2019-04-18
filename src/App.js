@@ -4,21 +4,26 @@ import './App.css';
 
 const COLORS = ["red", "blue"];
 
+
+
 class Welcome extends Component {
   constructor(props) {
     super(props);
-    this.state = {name: ""};
+    this.state = { name: "" };
     this.handleNameChange = this.handleNameChange.bind(this);
+
   }
-  handleNameChange(e){
-    this.setState({name: e})
+  handleNameChange(e) {
+    this.setState({ name: e })
   }
-  
+
   render() {
+
     return (
+
       <React.Fragment>
         <h1>Hello {this.state.name}</h1>
-        <NameInput name={this.state.name} onNameChange = {this.handleNameChange} />
+        <NameInput name={this.state.name} onNameChange={this.handleNameChange} />
       </React.Fragment>
     )
   }
@@ -41,10 +46,10 @@ class Square extends Component {
     this.timerID = setInterval(
       () => {
         if (this.state.color === "red") {
-          this.changeColor("blue")
+          this.changeColor(COLORS[1])
 
         } else {
-          this.changeColor("red")
+          this.changeColor(COLORS[0])
 
         }
       },
@@ -102,22 +107,32 @@ class Message extends Component {
 class NameInput extends Component {
   constructor(props) {
     super(props);
-      this.handleChange = this.handleChange.bind(this);
-    // this.state = {name: ""};
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {name: ""};
+
+  }
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.onNameChange(this.state.name);
+  }
+  handleChange(e) {
+    this.setState({name: e.target.value})
+    // this.props.onNameChange(e.target.value);
     
   }
-  handleChange(e){
-    this.props.onNameChange(e.target.value);
-  }
   render() {
-    const name = this.props.name;
+    const name = this.state.name;
     return (
-      <fieldset>
-        <legend>Enter your name.</legend>
-        <input 
-        value={name}
-        onChange={this.handleChange}></input>
-      </fieldset>
+      <form onClick={this.handleSubmit}>
+        <fieldset>
+          <legend>Enter your name.</legend>
+          <input
+            value={name}
+            onChange={this.handleChange}></input>
+        </fieldset>
+        <button type="button">Click</button>
+      </form>
     )
   }
 }
