@@ -165,7 +165,7 @@ class App extends Component {
           <Square color={"red"} />
           <Square color={"blue"} />
         </div>
-        <p>This is my <a href="https://github.com/Phorrester/react-js">Github</a> link.</p>
+        <p>This is my <a href="https://github.com/Phorrester/react-js" target="_blank">Github</a> link.</p>
       </div>
     );
   }
