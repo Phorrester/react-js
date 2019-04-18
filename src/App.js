@@ -124,14 +124,23 @@ class NameInput extends Component {
   render() {
     const name = this.state.name;
     return (
-      <form onClick={this.handleSubmit}>
+      <form>
         <fieldset>
           <legend>Enter your name.</legend>
           <input
             value={name}
-            onChange={this.handleChange}></input>
+            onChange={this.handleChange}
+            onKeyPress= {function(e) {
+              if (e.key === "Enter"){
+                e.preventDefault()
+                document.querySelector("button").click();
+              }
+              
+            }
+             
+            }></input>
         </fieldset>
-        <button type="button">Click</button>
+        <button type="button" onClick={this.handleSubmit}>Click</button>
       </form>
     )
   }
