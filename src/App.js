@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
 import './App.css';
 
 const COLORS = ["red", "blue"];
 
 
-
+// This class will show a greeting and render the nameInput component to update the greeting.
 class Welcome extends Component {
   constructor(props) {
     super(props);
@@ -28,7 +27,7 @@ class Welcome extends Component {
     )
   }
 }
-
+// This class will display a square that will cycle between two different colors.
 class Square extends Component {
   constructor(props) {
     super(props);
@@ -67,6 +66,7 @@ class Square extends Component {
   }
 }
 
+// This class is from reactjs.org
 class Clock extends Component {
   constructor(props) {
     super(props);
@@ -92,7 +92,7 @@ class Clock extends Component {
     });
   }
 }
-
+// This will take the message prop and display it.
 class Message extends Component {
   constructor(props) {
     super(props);
@@ -104,6 +104,7 @@ class Message extends Component {
     )
   }
 }
+// This will show a input box and button that can pass the value up to the component that rendered it.
 class NameInput extends Component {
   constructor(props) {
     super(props);
@@ -118,7 +119,7 @@ class NameInput extends Component {
   }
   handleChange(e) {
     this.setState({ name: e.target.value })
-    // this.props.onNameChange(e.target.value);
+    
 
   }
   render() {
@@ -145,6 +146,7 @@ class NameInput extends Component {
     )
   }
 }
+// Main class that renders everything.
 class App extends Component {
   render() {
     return (
