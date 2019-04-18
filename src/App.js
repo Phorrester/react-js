@@ -62,7 +62,7 @@ class Square extends Component {
   }
   render() {
     return (
-      <div className={`${this.state.color} ${"col-sm-6"}`}/> //This is how you can add two classes.
+      <div className={`${this.state.color} ${"col-sm-6"}`} /> //This is how you can add two classes.
     )
   }
 }
@@ -109,7 +109,7 @@ class NameInput extends Component {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.state = {name: ""};
+    this.state = { name: "" };
 
   }
   handleSubmit(e) {
@@ -117,9 +117,9 @@ class NameInput extends Component {
     this.props.onNameChange(this.state.name);
   }
   handleChange(e) {
-    this.setState({name: e.target.value})
+    this.setState({ name: e.target.value })
     // this.props.onNameChange(e.target.value);
-    
+
   }
   render() {
     const name = this.state.name;
@@ -130,14 +130,14 @@ class NameInput extends Component {
           <input
             value={name}
             onChange={this.handleChange}
-            onKeyPress= {function(e) {
-              if (e.key === "Enter"){
+            onKeyPress={function (e) {
+              if (e.key === "Enter") {
                 e.preventDefault()
                 document.querySelector("button").click();
               }
-              
+
             }
-             
+
             }></input>
         </fieldset>
         <button type="button" onClick={this.handleSubmit}>Click</button>
@@ -157,14 +157,15 @@ class App extends Component {
           <Square color="red" />
           <Square color="blue" />
         </div>
-          <div className={"inline"}>
-            <Square color={"blue"}/>
-            <Square color={"red"}/>
-          </div>
-          <div className={"inline"}>
-              <Square color={"red"}/>
-              <Square color={"blue"}/>
-          </div>
+        <div className={"inline"}>
+          <Square color={"blue"} />
+          <Square color={"red"} />
+        </div>
+        <div className={"inline"}>
+          <Square color={"red"} />
+          <Square color={"blue"} />
+        </div>
+        <p>This is my <a href="https://github.com/Phorrester/react-js">Github</a> link.</p>
       </div>
     );
   }
